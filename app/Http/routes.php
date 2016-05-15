@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'MsBroController@home');
+
+Route::get('/upload', function() {
+	return view('upload');
+});
+
+Route::group(['middleware' => 'web'], function () {
+	Route::post('/uploading', 'MsBroController@upload');
+	Route::get('/{lagu?}', ['uses' => 'MsBroController@play']);
 });

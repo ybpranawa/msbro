@@ -40,11 +40,6 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
             </div>
-            <audio controls>
-                <source src="http://153.92.35.244/Don_t_Let_Me_Down_ft._Daya.mp3" type="audio/mp3">
-                Your browser does not support the audio tag.
-            </audio>
         </div>
-        
     </body>
 </html>

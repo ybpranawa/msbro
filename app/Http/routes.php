@@ -17,6 +17,10 @@ Route::get('/upload', function() {
 	return view('upload');
 });
 
+Route::get('/play', function() {
+	return view('play');
+});
+
 Route::group(['middleware' => 'web'], function () {
 	Route::post('/uploading', 'MsBroController@upload');
 	Route::get('/{lagu?}', ['uses' => 'MsBroController@play']);

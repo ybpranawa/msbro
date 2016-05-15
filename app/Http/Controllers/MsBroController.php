@@ -58,7 +58,7 @@ class MsBroController extends Controller
             // Base URI is used with relative requests
             'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080/',
             // You can set any number of default request options.
-            'timeout'  => 2.0,
+            //'timeout'  => 2.0,
         ]);
         //echo $lagu;
         $res = $client->request('GET', "$lagu");

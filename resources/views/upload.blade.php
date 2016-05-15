@@ -1,6 +1,6 @@
-@section('content')
-
 @extends('layouts.master')
+
+@section('content')
   <div class="container">
     <div class="section">
       <br>

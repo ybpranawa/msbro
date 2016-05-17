@@ -6,11 +6,18 @@
       <br>
       <br>
       <div class="row">
-        @if ($errors)
-          
-        @endif
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                    @endif
         <div class="col s6 z-depth-5 card-panel center-align" style="margin: auto; float: none;">
-          <form class="login-form" role="form" method="POST" action="{{url('/')}}/ayologin">
+          <form class="login-form" role="form" method="POST" action="{{url('/auth/login')}}">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="row">
               <div class="input-field col s12 center">
@@ -20,14 +27,14 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
+                <input name="email" id="email" type="email" class="validate">
                 <i class="mdi-social-person-outline prefix"></i>
                 <label for="email" data-error="wrong" data-success="right">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input id="password" type="password">
+                <input name="password" id="password" type="password">
                 <i class="mdi-action-lock-outline prefix"></i>
                 <label for="password">Password</label>
               </div>
@@ -45,10 +52,10 @@
             </div>
             <div class="row">
               <div class="input-field col s6 m6 l6">
-                <p class="margin medium-small"><a href="{{url("/")}}/register">Register Now!</a></p>
+                <p class="margin medium-small"><a href="{{url("/")}}/daftar">Register Now!</a></p>
               </div>
               <div class="input-field col s6 m6 l6">
-                  <p class="margin right-align medium-small"><a href="{{url("/")}}/resetpassword">Forgot password?</a></p>
+                  <p class="margin right-align medium-small"><a href="{{url("/")}}/lupapassword">Forgot password?</a></p>
               </div>          
             </div>
           </form>

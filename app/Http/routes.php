@@ -12,20 +12,15 @@
 */
 
 Route::auth();
+Route::get('/hoome', 'HomeController@index');
 
-// Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-// Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-
-Route::controllers([
-   'password' => 'Auth\PasswordController',
-]);
 
 Route::get('/', 'MsBroController@home');
 
@@ -33,15 +28,15 @@ Route::get('/ndex', function(){
 	return view('home');
 });
 
-Route::get('/login', function(){
-	return view('login');
+Route::get('/daftar', function(){
+	return view('daftar');
 });
 
-Route::get('/register', function(){
-	return view('register');
+Route::get('/masuk', function(){
+	return view('masuk');
 });
 
-Route::get('/resetpassword', function(){
+Route::get('/lupapassword', function(){
 	return view('resetpass');
 });
 
@@ -57,5 +52,3 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/uploading', 'MsBroController@upload');
 	Route::get('/{lagu?}', ['uses' => 'MsBroController@play']);
 });
-
-//Route::get('/home', 'HomeController@index');

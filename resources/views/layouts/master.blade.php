@@ -15,6 +15,7 @@
   <div class="navbar-fixed">
     <nav class=" pink darken-1" role="navigation">
       <div class="nav-wrapper container"><a id="logo-container" href="{{url("/")}}" class="brand-logo" style="font-size: 3pe;"><img src="{{asset("img/msbroo.jpg")}}" class="circle responsive-img" style="width: 44px; vertical-align: middle;">  MS BRO</a>
+        @if (Auth::guest())
         <ul class="right hide-on-med-and-down">
           <!-- Dropdown Trigger -->
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Login<i class="material-icons left">perm_identity</i></a></li>
@@ -22,9 +23,9 @@
           <!-- Dropdown Structure -->
           <ul id="dropdown1" class="dropdown-content">
             <li class="divider"></li>
-            <li><span><p>Already have an account?</p><a class="btn" href="{{url("/")}}/login">Login</a></span></li>
+            <li><span><p>Already have an account?</p><a class="btn" href="{{url("/")}}/masuk">Login</a></span></li>
             <li class="divider"></li>
-            <li><span><p>Register Now!</p><a class="btn" href="{{url("/")}}/register">Register</a></span></li>
+            <li><span><p>Register Now!</p><a class="btn" href="{{url("/")}}/daftar">Register</a></span></li>
             </ul>
         </ul>
 
@@ -37,15 +38,49 @@
                 <div class="collapsible-body">
                   <ul>
                     <li class="divider"></li>
-                    <li><a href="{{url("/")}}/login">Login</a></li>
+                    <li><a href="{{url("/")}}/masuk">Login</a></li>
                     <li class="divider"></li>
-                    <li><a href="{{url("/")}}/register">Register</a></li>
+                    <li><a href="{{url("/")}}/daftar">Register</a></li>
                   </ul>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
+
+        @else
+        <ul class="right hide-on-med-and-down">
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Login<i class="material-icons left">perm_identity</i></a></li>
+          <li><a href="{{url("/")}}/upload">Upload</a></li>
+          <!-- Dropdown Structure -->
+          <ul id="dropdown1" class="dropdown-content">
+            <li><p>{{ Auth::user()->username }}</p></li>
+            <li class="divider"></li>
+            <li><a class="btn" href="{{ url('/logout') }}">Logout</a></li>
+            </ul>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li><a href="{{url("/")}}/upload">Upload</a></li>
+              <li>
+                <a class="collapsible-header">Login<i class="material-icons left">perm_identity</i></i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><p>{{ Auth::user()->username }}</p></li>
+                    <li class="divider"></li>
+                    <li><a class="btn" href="{{ url('/logout') }}">Logout</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        @endif
+
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>

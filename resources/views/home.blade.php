@@ -78,7 +78,7 @@
                   <img class="activator" src="img/msbroo.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4"><?php echo $list;?></span>
+                  <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $list;?></span>
                   <p><a href="{{url("/")}}/<?php echo $list;?>" class="btn waves-effect waves-red" style="color: #000000; background-color: #ffffff">Play</a></p>
                 </div>
               </div>

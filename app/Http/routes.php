@@ -30,7 +30,7 @@ Route::get('resset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 
-Route::get('/', 'MsBroController@home');
+/*Route::get('/', 'MsBroController@home');*/
 
 /*Route::get('/ndex', function(){
 	return view('home');
@@ -51,6 +51,16 @@ Route::get('/lupapassword', function(){
 Route::get('/upload', function() {
 	return view('upload');
 });
+
+Route::get('/privupload', ['middleware' => 'auth', function() {
+    // Only authenticated users may enter...
+    return view('privupload');
+}]);
+
+Route::post('profile', [
+    'middleware' => 'auth',
+    'uses' => 'MsBroController@privupload'
+]);
 
 Route::get('/play', function() {
 	return view('play');

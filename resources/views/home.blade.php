@@ -64,22 +64,23 @@
       <div class="row">
         <div class="col s12">
           <ul class="tabs">
-            <li class="tab col s3"><a class="active" href="#tab1">All Music</a></li>
-            <li class="tab col s3"><a href="#tab2">New Music</a></li>
-            <li class="tab col s3"><a href="#tab3">Top 40</a></li>
+            <li class="tab col s6"><a class="active" href="#tab1">All Music</a></li>
+            @if(Auth::check())
+            <li class="tab col s6"><a href="#tab2">Private List</a></li>
+            @endif
           </ul>
         </div>
         <div id="tab1" class="row">
           @if(isset($lagu))
-            @foreach ($lagu as $list)
+            @foreach ($lagu as $lisst)
             <div class="col s3">
               <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img class="activator" src="img/msbroo.jpg">
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $list;?></span>
-                  <p><a href="{{url("/")}}/<?php echo $list;?>" class="btn waves-effect waves-red" style="color: #000000; background-color: #ffffff">Play</a></p>
+                  <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $lisst;?></span>
+                  <p><a href="{{url("/")}}/{{ Auth::user()->username }}<?php echo $lisst;?>" class="btn waves-effect waves-red" style="color: #000000; background-color: #ffffff">Play</a></p>
                 </div>
               </div>
             </div>
@@ -87,12 +88,26 @@
           @endif
 
         </div>
+
+        @if(Auth::check())
         <div id="tab2" class="col s12">
-
+          @if(isset($lagu))
+            @foreach ($list as $prilist)
+            <div class="col s3">
+              <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator" src="img/msbroo.jpg">
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4 truncate"><?php echo $prilist;?></span>
+                  <p><a href="{{url("/")}}/{{ Auth::user()->username }}/<?php echo $prilist;?>" class="btn waves-effect waves-red" style="color: #000000; background-color: #ffffff">Play</a></p>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          @endif
         </div>
-        <div id="tab3" class="col s12">
-
-        </div>
+        @endif
       </div>
 
     </div>

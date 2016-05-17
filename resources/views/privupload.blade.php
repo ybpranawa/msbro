@@ -7,8 +7,9 @@
       <br>
       <h1 class="header center pink-text text-darken-3">Upload Your Music</h1>
       <div class="row">
-        <form class="col s12" role="form" method="POST" action="{{url('/')}}/uploading" enctype="multipart/form-data">
+        <form class="col s12" role="form" method="POST" action="{{url('/')}}/privupload" enctype="multipart/form-data">
           <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+          <input type="hidden" name="user" value="{{ Auth::user()->username }}">
           <div class="file-field input-field">
             <div class="btn">
               <span>File</span>

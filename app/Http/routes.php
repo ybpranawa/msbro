@@ -30,7 +30,7 @@ Route::get('resset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 
-/*Route::get('/', 'MsBroController@home');*/
+Route::get('/', 'MsBroController@home');
 
 /*Route::get('/ndex', function(){
 	return view('home');

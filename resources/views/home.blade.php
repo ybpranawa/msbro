@@ -70,7 +70,7 @@
           </ul>
         </div>
         <div id="tab1" class="row">
-          @if($lagu)
+          @if(isset($lagu))
             @foreach ($lagu as $list)
             <div class="col s3">
               <div class="card">

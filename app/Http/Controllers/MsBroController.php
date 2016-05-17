@@ -17,13 +17,21 @@ class MsBroController extends Controller
 		    // You can set any number of default request options.
 		    'timeout'  => 2.0,
 		]);
-        $res = $client->request('GET', '/');
-        //echo $res->getStatusCode();
-        //echo $res->getHeader('content-type');
-        $a = $res->getBody();
-        $a = json_decode($a);
-        $data['lagu'] = $a;
-        return view('home', $data);
+        if($client)
+        {
+            $res = $client->request('GET', '/');
+            //echo $res->getStatusCode();
+            //echo $res->getHeader('content-type');
+            $a = $res->getBody();
+            $a = json_decode($a);
+            $data['lagu'] = $a;
+            return view('home', $data);
+        }
+        else
+        {
+            return view('home');
+        }
+        
     }
 
     public function upload(Request $request)
@@ -54,17 +62,21 @@ class MsBroController extends Controller
     }
 
     public function play($lagu){
-        $client = new Client([
+        /*$client = new Client([
             // Base URI is used with relative requests
             'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080/',
             // You can set any number of default request options.
             //'timeout'  => 2.0,
-        ]);
+        ]);*/
         //echo $lagu;
-        $res = $client->request('GET', "$lagu");
+        /*$res = $client->request('GET', "$lagu");*/
         //echo $res->getStatusCode();
         //var_dump($res->getHeader('content-type'));
         //$a = $res->getBody();
         //var_dump($a);
+        $base = 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080/';
+        $data['link'] = $base . $lagu;
+        $data['judul'] = $lagu;
+        return view('play', $data);
     }
 }

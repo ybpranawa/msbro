@@ -13,6 +13,10 @@
 
 Route::get('/', 'MsBroController@home');
 
+Route::get('/ndex', function(){
+	return view('home');
+});
+
 Route::get('/upload', function() {
 	return view('upload');
 });
@@ -25,3 +29,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/uploading', 'MsBroController@upload');
 	Route::get('/{lagu?}', ['uses' => 'MsBroController@play']);
 });
+
+
+//Route::auth();
+
+//Route::get('/home', 'HomeController@index');

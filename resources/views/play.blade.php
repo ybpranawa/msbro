@@ -62,8 +62,8 @@
 		$("#jquery_jplayer_1").jPlayer({
 			ready: function (event) {
 				$(this).jPlayer("setMedia", {
-					title: "Bubble",
-					mp3: "http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080/07._All_Signs_Point_to_Lauderdale.mp3"
+					title: "<?php echo $judul;?>",
+					mp3: "<?php echo $link;?>"
 				});
 			},
 			swfPath: "{{asset("js")}}",

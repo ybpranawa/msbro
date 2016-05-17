@@ -14,7 +14,7 @@
 <body>
   <div class="navbar-fixed">
     <nav class=" pink darken-1" role="navigation">
-      <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="font-size: 3pe;"><img src="{{asset("img/msbroo.jpg")}}" class="circle responsive-img" style="width: 44px; vertical-align: middle;">  MS BRO</a>
+      <div class="nav-wrapper container"><a id="logo-container" href="{{url("/")}}" class="brand-logo" style="font-size: 3pe;"><img src="{{asset("img/msbroo.jpg")}}" class="circle responsive-img" style="width: 44px; vertical-align: middle;">  MS BRO</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{url("/")}}/upload">Upload</a></li>
         </ul>

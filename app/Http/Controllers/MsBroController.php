@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use App\Http\Requests;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -13,7 +14,7 @@ class MsBroController extends Controller
     {
         $client = new Client([
 		    // Base URI is used with relative requests
-		    'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080',
+		    'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com',
 		    // You can set any number of default request options.
 		    'timeout'  => 2.0,
 		]);
@@ -26,6 +27,7 @@ class MsBroController extends Controller
             $a = json_decode($a);
             $data['lagu'] = $a;
 
+            $this->middleware('auth');
             if (Auth::check()) {
                 // $request->user() returns an instance of the authenticated user...
                 $link = "/list/" . Auth::user()->username;
@@ -56,7 +58,7 @@ class MsBroController extends Controller
 
     	$client = new Client([
 		    // Base URI is used with relative requests
-		    'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080',
+		    'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com',
 		    // You can set any number of default request options.
 		    'timeout'  => 2.0,
 		]);
@@ -85,7 +87,7 @@ class MsBroController extends Controller
 
         $client = new Client([
             // Base URI is used with relative requests
-            'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080',
+            'base_uri' => 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com',
             // You can set any number of default request options.
             'timeout'  => 2.0,
         ]);
@@ -115,7 +117,7 @@ class MsBroController extends Controller
         //var_dump($res->getHeader('content-type'));
         //$a = $res->getBody();
         //var_dump($a);
-        $base = 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com:8080/';
+        $base = 'http://ubuntuserver140412-helloworld-3p6ikn3x.srv.ravcloud.com/';
         $data['link'] = $base . $lagu;
         $data['judul'] = $lagu;
         return view('play', $data);

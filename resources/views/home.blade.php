@@ -91,7 +91,7 @@
 
         @if(Auth::check())
         <div id="tab2" class="col s12">
-          @if(isset($lagu))
+          @if(isset($list))
             @foreach ($list as $prilist)
             <div class="col s3">
               <div class="card">

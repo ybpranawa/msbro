@@ -9,7 +9,7 @@
     <div class="section">
       <br>
       <br>
-      <h1 class="header center pink-text text-darken-3">Upload Your Music</h1>
+      <h1 class="header center pink-text text-darken-3"><?php echo $judul;?></h1>
       <div class="row">
       	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 			<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">

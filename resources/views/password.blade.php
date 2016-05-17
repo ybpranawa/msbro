@@ -5,7 +5,6 @@
     <div class="section">
       <br>
       <br>
-      <h1 class="header center pink-text text-darken-3">Register</h1>
       <div class="row">
                 @if ($errors->has('username'))
                     <span class="help-block">
@@ -38,14 +37,14 @@
             </div>
             <div class="row margin">
               <div class="input-field col s12">
-                <input name="name" id="name" type="text" class="validate" value="{{ old('name') }}">
+                <input name="name" id="name" type="text" class="validate">
                 <i class="mdi-social-person-outline prefix"></i>
                 <label for="name" class="center-align">Username</label>
               </div>
             </div>
             <div class="row margin">
               <div class="input-field col s12">
-                <input name="email" id="email" type="email" class="validate" value="{{ old('email') }}">
+                <input name="email" id="email" type="email" class="validate">
                 <i class="mdi-communication-email prefix"></i>
                 <label for="email" class="center-align">Email</label>
               </div>

@@ -5,6 +5,7 @@
     <div class="section">
       <br>
       <br>
+      <h1 class="header center pink-text text-darken-3">Login</h1>
       <div class="row">
                     @if ($errors->has('email'))
                         <span class="help-block">
@@ -27,7 +28,7 @@
             </div>
             <div class="row">
               <div class="input-field col s12">
-                <input name="email" id="email" type="email" class="validate">
+                <input name="email" id="email" type="email" class="validate" value="{{ old('email') }}">
                 <i class="mdi-social-person-outline prefix"></i>
                 <label for="email" data-error="wrong" data-success="right">Email</label>
               </div>

@@ -5,12 +5,20 @@
     <div class="section">
       <br>
       <br>
+      <h1 class="header center pink-text text-darken-3">Forget Password?</h1>
       <div class="row">
-        @if ($errors)
-          
+        @if (session('status'))
+          <div class="alert alert-success">
+            {{ session('status') }}
+          </div>
+        @endif
+        @if ($errors->has('email'))
+          <span class="help-block">
+            <strong>{{ $errors->first('email') }}</strong>
+          </span>
         @endif
         <div class="col s6 z-depth-5 card-panel center-align" style="margin: auto; float: none;">
-          <form class="login-form" role="form" method="POST" action="{{url('/')}}/koklupa">
+          <form class="login-form" role="form" method="POST" action="{{url('/')}}/resset">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <div class="row">
               <div class="input-field col s12 center">
@@ -20,7 +28,7 @@
             </div>
             <div class="row margin">
               <div class="input-field col s12">
-                <input class="validate" id="email" type="email">
+                <input class="validate" name="email" id="email" type="email" value="{{ old('email') }}">
                 <i class="mdi-social-person-outline prefix"></i>
                 <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
               </div>
